@@ -1,0 +1,4 @@
+interface:
+  display_name: "数学题互动网页教学"
+  short_description: "数学题照片转离线可点播的分步 HTML 教学课件"
+  default_prompt: "用 math-interactive-lesson 将这道初中数学题做成先讲思路、点击一步讲一步的离线互动 HTML；复核答案并测试交互。"
