@@ -1,0 +1,13 @@
+interface:
+  display_name: 谢老英语·作文原图批改
+  short_description: 保留学生原稿，按固定流程制作带编号及中文理由的作文批改打印稿
+  default_prompt: 使用 $grade-essay-on-original，按固定模式批改上传的作文，保留原稿并交付可打印 PDF 和图片预览。
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
