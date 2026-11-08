@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第22题｜角平分线与勾股定理｜互动解题课堂</title>
+<style>
+:root{--bg:#f5f7fb;--panel:#fff;--ink:#15243b;--muted:#61718a;--line:#dfe7f3;--blue:#2563eb;--red:#e74f6d;--gold:#dc8b23;--teal:#07887c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);line-height:1.65}
+.wrap{max-width:1320px;margin:auto;padding:22px 24px 48px}header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}h1{font-size:clamp(23px,2.7vw,35px);line-height:1.25;margin:4px 0}h2{font-size:clamp(20px,2.1vw,29px);margin:0 0 12px}p{margin:0 0 8px}small,.sub{color:var(--muted)}.tiny{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.04em}strong{font-weight:750}
+.chip{border:1px solid var(--line);padding:5px 11px;border-radius:99px;color:var(--muted);white-space:nowrap;font-size:14px}.topline{height:6px;background:#e0e9f7;border-radius:10px;overflow:hidden;margin:12px 0 18px}.topline>div{height:100%;background:var(--blue);width:5%;transition:width .2s}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}.tab{font-size:14px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:white;color:var(--muted);cursor:pointer;font-weight:700}.tab.active{background:var(--blue);border-color:var(--blue);color:white}
+.grid{display:grid;grid-template-columns:minmax(350px,0.91fr) minmax(470px,1.12fr);gap:16px;align-items:stretch}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 25px #2441680c;padding:25px;min-width:0}.left{display:flex;flex-direction:column;min-height:570px}.tag{font-weight:750;font-size:13px;color:var(--blue);margin-bottom:9px}.thinking{background:#eef4ff;border-left:4px solid var(--blue);border-radius:12px;padding:18px 20px;margin:14px 0}.thinking b{display:block;margin-bottom:5px}.formula{background:#f7f9fd;border:1px solid var(--line);border-radius:13px;padding:18px 20px;margin:8px 0 14px}.formula pre{white-space:pre-wrap;font-size:clamp(17px,1.6vw,24px);font-weight:680;font-family:inherit;margin:4px 0;line-height:1.72;overflow-wrap:anywhere}.tip{color:var(--muted);font-size:15px}.nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:25px}.btn{border:0;border-radius:11px;padding:13px 19px;font-size:16px;font-weight:750;cursor:pointer;background:var(--blue);color:white;touch-action:manipulation}.btn.secondary{background:white;color:var(--ink);border:1px solid #cbd6e5}.btn:disabled{opacity:.4;cursor:not-allowed}.right{display:flex;flex-direction:column;gap:10px}.diagram{display:block;width:100%;max-height:480px;aspect-ratio:900/520;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #e9eff7;border-radius:14px}
+svg text{font-family:inherit;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}.key{font-weight:740}.guide{fill:#6d7b90;font-size:14px}.legend{font-size:13px;color:var(--muted);margin:0 2px}
+.experiment{display:none;background:#f7f9fd;border:1px solid var(--line);border-radius:12px;padding:14px 18px}.experiment.active{display:block}.track{width:100%;accent-color:var(--blue);cursor:pointer;margin:10px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{background:white;border:1px solid var(--line);border-radius:10px;text-align:center;padding:7px}.stat small{display:block;font-size:12px}.stat b{font-size:20px;font-variant-numeric:tabular-nums}.notice{font-size:14px;font-weight:700;margin-top:9px}.success{color:#087c63}.subdued{color:#5f728e}.quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.quick button{font-size:13px;border:1px solid #b9cbe5;background:white;color:var(--blue);border-radius:9px;padding:7px 11px;font-weight:700;cursor:pointer}
+details{margin-top:14px;border:1px solid var(--line);border-radius:11px;padding:12px 15px;background:white}summary{cursor:pointer;font-weight:700;color:var(--blue)}details p{font-size:14px;margin-top:9px;color:var(--ink)}.footer{margin-top:18px;color:var(--muted);font-size:14px;text-align:center}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.left{min-height:430px}.wrap{padding:12px}.panel{padding:18px}.diagram{max-height:none}}@media(max-width:480px){header{align-items:start}h1{font-size:22px}.btn{font-size:14px;padding:10px 13px}.tab{font-size:12px;padding:7px 10px}.formula pre{font-size:17px}.panel{padding:14px}.stats .stat b{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><div class="tiny">八年级数学 · 第22题 · 解题思路与几何辅助线</div><h1>角平分线 × 45° × 勾股定理</h1><div class="sub">看懂一步，再点击“下一步”｜离线互动课堂</div></div><div class="chip" id="counter">1 / 19</div></header>
+<div class="topline"><div id="progress"></div></div>
+<div class="tabs"><button class="tab active" data-go="0">读题与思路</button><button class="tab" data-go="2">角平分线</button><button class="tab" data-go="5">作辅助线</button><button class="tab" data-go="9">勾股计算</button><button class="tab" data-go="17">动手验证</button></div>
+<div class="grid">
+<section class="panel left" aria-live="polite"><div><div class="tag" id="stepTag">第 1 步</div><h2 id="stepTitle"></h2><div class="thinking"><b>💡 先想什么？</b><div id="question"></div></div><div class="formula"><div class="tiny">解题过程</div><pre id="equations"></pre></div><p class="tip" id="tip"></p><details id="why"><summary>为什么 AD 平分∠BAC 能得到 AB : AC = 2 : 1？</summary><p>因为 D 在 ∠BAC 的角平分线上，所以 D 到 AB、AC 两边的垂直距离相等。△ABD 与 △ACD 以 AB、AC 为底时，高相等，故面积比为 AB : AC；它们以 BD、DC 为底时，来自 A 的高也相等，故面积比为 BD : DC。于是 AB : AC = BD : DC = 6 : 3 = 2 : 1。</p></details></div><div class="nav"><button class="btn secondary" id="prev">‹ 上一步</button><button class="btn" id="next">下一步 ›</button></div></section>
+<section class="panel right"><svg id="svg" viewBox="0 0 900 520" class="diagram" role="img" aria-label="三角形 ABC、D 在 BC 上，AD 是角平分线，A 到 BC 所在直线的垂线 AH，角 ADC 为45度">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#8291a5"/></marker></defs>
+<line x1="75" y1="405" x2="842" y2="405" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 7"/>
+<g id="focusHighlight"></g>
+<line id="AB" stroke="#566e9a" stroke-width="4" stroke-linecap="round"/><line id="AC" stroke="#dc8b23" stroke-width="4" stroke-linecap="round"/><line id="AD" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+<line id="AH" stroke="#07887c" stroke-width="3.3" stroke-dasharray="9 6"/>
+<path id="rightAngle" fill="none" stroke="#07887c" stroke-width="2.5"/>
+<path d="M 444 405 A 44 44 0 0 0 431.11 373.89" fill="none" stroke="#e74f6d" stroke-width="3"/>
+<text x="452" y="375" fill="#e74f6d" font-size="18" class="key">45°</text>
+<g id="points"></g><g id="labels"></g>
+</svg><div class="legend">蓝色 AD：角平分线　橙色 AC：目标边　绿色虚线 AH：辅助垂线</div>
+<div class="experiment" id="experiment"><strong>互动实验：拖动 A（始终保持 ∠ADC=45°）</strong><p class="tip">改变 DH=AH=t，观察 AB 与 AC 的长度比。何时恰好 AB=2AC？</p><input id="slider" class="track" aria-label="调节 t 的取值" type="range" min="0.8" max="8.5" step="0.05" value="4"><div class="stats"><div class="stat"><small>t</small><b id="statT"></b></div><div class="stat"><small>AB ÷ AC</small><b id="statR"></b></div><div class="stat"><small>AC</small><b id="statAC"></b></div></div><div class="notice subdued" id="feedback"></div><div class="quick"><button type="button" id="tryFour">试 t=4</button><button type="button" id="trySix">验证 t=6</button></div></div>
+</section>
+</div><div class="footer">本页无需网络和第三方插件。键盘 ← / → 也可切换讲解步骤。</div>
+</div>
+<script>
+'use strict';
+const steps=[
+{h:'看清题目条件',q:'已知哪些线段、角和几何关系？最终要求什么？',f:'BD = 6，DC = 3\nAD 平分 ∠BAC\n∠ADC = 45°\n求线段 AC 的长度。',tip:'B、D、C 三点共线，D 位于 BC 之间。',g:0},
+{h:'先算出 BC',q:'D 把 BC 分成哪两段？',f:'BC = BD + DC\n   = 6 + 3 = 9',tip:'把题图中的长度信息整理出来。',g:0},
+{h:'为什么先关注角平分线？',q:'AD 平分 ∠BAC，这能把哪两条边联系起来？',f:'∠BAD = ∠DAC\n\n因此可利用角平分线定理。',tip:'角平分线不仅是“两个角相等”，还能建立两边的比例。',g:1},
+{h:'把已知线段转为比例',q:'BD : DC 已知，怎样与 AB : AC 联系？',f:'AB : AC = BD : DC\n           = 6 : 3\n           = 2 : 1',tip:'如果尚未学过角平分线定理，可以展开下方“为什么”查看面积证明。',g:1},
+{h:'用字母表示两边',q:'有了 AB : AC = 2 : 1，设哪条边为未知数最方便？',f:'设 AC = a（a > 0）\n则 AB = 2a\n\n所以 AB² = 4AC²。',tip:'后面用勾股定理得到 AB²、AC²，就能列方程。',g:1},
+{h:'45° 给了什么信息？',q:'∠ADC=45°，如何把角度信息转成长度关系？',f:'从 A 向 BC 所在直线作垂线，\n垂足记为 H。',tip:'关键辅助线：AH ⟂ BC。',g:2},
+{h:'作出垂线 AH',q:'垂线画出来以后，△ADH 具有什么特点？',f:'AH ⟂ DH\n且 ∠ADH = ∠ADC = 45°',tip:'图中绿色虚线 AH 就是辅助线。',g:2},
+{h:'利用等腰直角三角形',q:'直角三角形 ADH 有一个锐角45°，另一锐角是多少？',f:'∠DAH = 45°\n因此 AH = DH。\n\n设 AH = DH = t，t > 0。',tip:'这一步把角度 45° 转换成两条线段相等。',g:2},
+{h:'用 t 表示水平线段',q:'已知 BD=6、DC=3，怎样表示 BH 和 CH？',f:'BH = BD + DH = 6+t\nCH = |DH − DC| = |t−3|',tip:'暂时不必假设 H 在 C 的右侧；取绝对值更严谨。',g:2},
+{h:'在 △ABH 中用勾股',q:'它的两条直角边分别是多少？',f:'AB² = AH² + BH²\n     = t² + (t+6)²',tip:'注意 AB 是斜边。',g:3},
+{h:'在 △ACH 中用勾股',q:'同理，AC² 可以怎样写？',f:'AC² = AH² + CH²\n     = t² + (t−3)²',tip:'平方可以自动处理绝对值：|t−3|²=(t−3)²。',g:4},
+{h:'将角平分线比例代入',q:'前面已得 AB²=4AC²，可以把两个式子联立吗？',f:'t²+(t+6)²\n= 4[t²+(t−3)²]',tip:'几何性质 → 线段关系 → 一元方程。',g:5},
+{h:'展开并整理方程',q:'展开平方后，能否约去常数项？',f:'2t²+12t+36\n=8t²−24t+36\n\n6t²−36t=0',tip:'认真处理括号与负号。',g:5},
+{h:'解出 t',q:'方程有 t=0 和 t=6 两种结果，为什么只留一个？',f:'6t(t−6)=0\nt=0 或 t=6\n\n因为 t=AH>0，故 t=6。',tip:'t=0 会让三角形退化，不能取。',g:5},
+{h:'回到图形确定两条直角边',q:'既然 DH=AH=6，那么 CH 是多少？',f:'AH=6，DH=6\nCH=DH−DC=6−3=3',tip:'算出 t=6 后，能确定 H 在 C 的右侧。',g:6},
+{h:'最后一次勾股',q:'△ACH 是直角三角形，已知 AH=6、CH=3，求 AC。',f:'AC² = AH² + CH²\n     = 6² + 3²\n     = 45\n\nAC = √45 = 3√5',tip:'AC 是长度，取正值。',g:6},
+{h:'完整答案',q:'能否同时检查角平分线的比例是否成立？',f:'AC = 3√5\nAB = 2AC = 6√5\n\nAB : AC = 2 : 1 ✓\n\n答案：AC = 3√5',tip:'与已知 BD:DC=6:3=2:1 一致。',g:6},
+{h:'互动检验：猜一猜 t',q:'保持 ∠ADC=45°，移动点 A：什么时候 AB 恰好是 AC 的两倍？',f:'令 AH = DH = t\nAB = √[(t+6)²+t²]\nAC = √[(t−3)²+t²]\n\n寻找 AB/AC=2。',tip:'调节右边滑块，或点“验证 t=6”。',g:7},
+{h:'掌握这类题的做题方法',q:'下次遇到“角平分线 + 45° + 求线段”，先想哪三件事？',f:'① 角平分线 → 比例 AB:AC\n② 45°＋作垂线 → AH=DH\n③ 两个直角三角形 → 勾股列方程\n\n本题 AC = 3√5。',tip:'要记住的是“角平分线定比，45°造等腰，勾股求长度”的思路。',g:6}
+];
+let index=0, t=6;
+const by=id=>document.getElementById(id);
+const point={B:[145,405],D:[400,405],C:[527.5,405]};
+function el(tag,attrs,text){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs||{}))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n}
+function coords(){return{A:[400+42.5*t,405-42.5*t],H:[400+42.5*t,405]}}
+function line(id,p1,p2){const n=by(id);n.setAttribute('x1',p1[0]);n.setAttribute('y1',p1[1]);n.setAttribute('x2',p2[0]);n.setAttribute('y2',p2[1])}
+function draw(){const s=steps[index],{A,H}=coords(),{B,D,C}=point;line('AB',A,B);line('AC',A,C);line('AD',A,D);line('AH',A,H);by('AH').style.display=s.g>=2?'':'none';by('rightAngle').style.display=s.g>=2?'':'none';by('rightAngle').setAttribute('d',`M ${H[0]-16},${H[1]} L ${H[0]-16},${H[1]-16} L ${H[0]},${H[1]-16}`);
+let f=by('focusHighlight'),p=by('points'),l=by('labels');f.replaceChildren();p.replaceChildren();l.replaceChildren();
+if(s.g===2){f.append(el('polygon',{points:`${A} ${D} ${H}`,fill:'#07887c','fill-opacity':'.10'}))}
+if(s.g===3){f.append(el('polygon',{points:`${A} ${B} ${H}`,fill:'#2563eb','fill-opacity':'.10'}))}
+if(s.g===4||s.g===6){f.append(el('polygon',{points:`${A} ${C} ${H}`,fill:'#dc8b23','fill-opacity':'.14'}))}
+const points=[['B',B,-20,-12],['D',D,-15,28],['C',C,-14,29],['A',A,11,-10]];
+if(s.g>=2)points.push(['H',H,12,24]);
+for(const [name,xy,dx,dy] of points){p.append(el('circle',{cx:xy[0],cy:xy[1],r:7,fill:name==='A'?'#e74f6d':'#334155',stroke:'white','stroke-width':2.5}));l.append(el('text',{x:xy[0]+dx,y:xy[1]+dy,'font-size':22,'font-weight':'750',fill:'#24364d'},name))}
+if(s.g>=1){l.append(el('text',{x:223,y:392,'font-size':19,fill:'#536477'},'BD=6'));l.append(el('text',{x:457,y:392,'font-size':19,fill:'#536477'},'DC=3'))}
+if(s.g>=2){const txt=s.g===7?`AH = ${t.toFixed(2)}`:s.g>=6?'AH = 6':'AH = t';l.append(el('text',{x:A[0]+13,y:(A[1]+405)/2,'font-size':19,fill:'#07887c'},txt));l.append(el('text',{x:(400+H[0])/2-14,y:475,'font-size':18,fill:'#07887c'},s.g===7?`DH=${t.toFixed(2)}`:s.g>=6?'DH=6':'DH=t'))}
+if(s.g>=6){l.append(el('text',{x:(527.5+H[0])/2-8,y:390,'font-size':18,fill:'#dc8b23'},'3'))}
+const ab=Math.hypot(t+6,t), ac=Math.hypot(t-3,t);
+by('statT').textContent=t.toFixed(2);by('statR').textContent=(ab/ac).toFixed(3);by('statAC').textContent=ac.toFixed(3);by('feedback').textContent=Math.abs(ab/ac-2)<.015?'验证成功：AB 恰好约为 AC 的两倍！':'继续移动 A，寻找 AB/AC=2 的位置。';by('feedback').className='notice '+(Math.abs(ab/ac-2)<.015?'success':'subdued');
+}
+function render(){const s=steps[index];by('counter').textContent=`${index+1} / ${steps.length}`;by('progress').style.width=`${(index+1)/steps.length*100}%`;by('stepTag').textContent=`第 ${index+1} 步`;by('stepTitle').textContent=s.h;by('question').textContent=s.q;by('equations').textContent=s.f;by('tip').textContent=s.tip;by('prev').disabled=index===0;by('next').textContent=index===steps.length-1?'重新学习 ↺':'下一步 ›';by('experiment').classList.toggle('active',index===17);by('why').style.display=index>=2&&index<=5?'':'none';by('why').open=false;for(const tab of document.querySelectorAll('.tab')){const a=Number(tab.dataset.go);tab.classList.toggle('active',a===0?index<=1:a===2?index>=2&&index<=4:a===5?index>=5&&index<=8:a===9?index>=9&&index<=16:index>=17)}if(index!==17){t=6;by('slider').value=6}draw()}
+function go(i){index=Math.max(0,Math.min(steps.length-1,i));if(index===17){t=4;by('slider').value=4}render()}
+by('prev').addEventListener('click',()=>go(index-1));by('next').addEventListener('click',()=>go(index===steps.length-1?0:index+1));document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(Number(b.dataset.go))));by('slider').addEventListener('input',e=>{t=Number(e.target.value);draw()});by('tryFour').addEventListener('click',()=>{t=4;by('slider').value=4;draw()});by('trySix').addEventListener('click',()=>{t=6;by('slider').value=6;draw()});document.addEventListener('keydown',e=>{if(e.target.matches('input'))return;if(e.key==='ArrowRight')go(index+1);if(e.key==='ArrowLeft')go(index-1)});render();
+</script>
+</body></html>

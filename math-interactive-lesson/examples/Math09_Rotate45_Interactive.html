@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>第9题｜一次函数绕点旋转45° · 互动解题课堂</title>
+<style>
+:root{--ink:#14243a;--sub:#59687c;--blue:#3266da;--orange:#e18429;--green:#0a9a88;--bg:#f5f7fb;--border:#e1e7f0;--surface:#fff;--accent:#eff4ff}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}
+.wrap{max-width:1480px;margin:0 auto;padding:24px 26px 38px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}.eyebrow{font-size:12px;letter-spacing:1.3px;font-weight:750;color:var(--blue)}h1{font-size:clamp(22px,2.4vw,34px);margin:5px 0 0;line-height:1.3}.subtle{color:var(--sub);font-size:13px}.pill{background:white;border:1px solid var(--border);border-radius:40px;padding:9px 14px;white-space:nowrap;color:var(--sub);font-weight:700}.progress{background:#e3eaf7;height:6px;border-radius:10px;overflow:hidden;margin:0 0 18px}.progress>div{height:100%;width:7.7%;background:var(--blue);transition:width .25s ease}.nav{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px}.nav button{background:white;color:#4c5a70;border:1px solid var(--border);border-radius:100px;padding:10px 15px;font-size:14px;font-weight:700}.nav button.on{background:var(--blue);border-color:var(--blue);color:white}
+.grid{display:grid;grid-template-columns:minmax(340px,.86fr) minmax(430px,1.14fr);gap:17px}.card{background:var(--surface);border:1px solid var(--border);box-shadow:0 8px 28px rgba(20,40,80,.055);border-radius:20px;padding:24px}.teaching{display:flex;flex-direction:column;min-height:620px}.smalllabel{font-size:13px;font-weight:800;color:var(--blue);margin-bottom:9px}.title{font-size:clamp(22px,2vw,29px);margin:0 0 20px}.think{background:#f0f4fa;border-radius:15px;padding:18px 20px;line-height:1.8}.think strong{display:block;margin-bottom:7px;font-size:15px}.derivation{border:1px solid var(--border);border-radius:15px;padding:18px 20px;margin-top:14px}.derivation strong{font-size:14px;color:var(--sub)}.equations{font-size:clamp(18px,1.7vw,24px);font-weight:700;line-height:2.05;white-space:pre-line;margin-top:12px;word-break:break-word}.hint{color:var(--sub);font-size:15px;line-height:1.7;margin:18px 1px}.actions{display:flex;justify-content:space-between;gap:12px;margin-top:auto;padding-top:15px}.btn{background:var(--blue);color:white;border:1px solid var(--blue);padding:14px 22px;border-radius:13px;font-weight:750}.btn.outline{background:white;color:var(--blue)}.btn:disabled{opacity:.35;cursor:default}
+.diagram{padding:16px 18px 20px}.board-title{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 8px 0}.board-title b{font-size:18px}.legend{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--sub);padding:0 9px 10px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;margin-right:5px}.blue{background:var(--blue)}.orange{background:var(--orange)}.green{background:var(--green)}svg{display:block;width:100%;height:auto;max-height:565px;overflow:hidden}svg text{font-family:system-ui,"Microsoft YaHei",sans-serif}.control{border-top:1px solid var(--border);padding:16px 8px 0}.control h3{margin:0 0 10px;font-size:17px}.buttonline{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.smallbtn{border:1px solid var(--border);background:#fff;color:#2c4566;border-radius:11px;padding:10px 13px;font-size:14px;font-weight:700}.smallbtn:hover{border-color:var(--blue)}.smallbtn.ispicked{background:var(--accent);border-color:var(--blue);color:var(--blue)}.sliderrow{display:flex;gap:12px;align-items:center}.sliderrow input{width:100%;accent-color:var(--blue)}.anglevalue{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:800;font-size:15px}.readout{margin-top:11px;color:var(--sub);font-size:14px;line-height:1.7;min-height:45px}.answer{margin-top:18px;border-radius:17px;background:#fff;border:1px solid var(--border);padding:16px 18px;font-size:15px;line-height:1.8}.answer b{color:var(--blue)}.answer .warning{color:#ad6114}.footer{margin-top:18px;text-align:center;color:#7b8798;font-size:12px}
+@media(max-width:1050px){.grid{grid-template-columns:1fr}.teaching{min-height:430px}.card{padding:19px}.diagram{padding:14px}.wrap{padding:15px}}@media(max-width:560px){h1{font-size:22px}.top{align-items:start}.pill{font-size:12px;padding:7px 9px}.nav button{padding:9px 11px;font-size:12px}.teaching{min-height:430px}.think,.derivation{padding:14px}.equations{font-size:20px}.btn{padding:12px 15px}.smallbtn{padding:9px 11px;font-size:12px}.board-title b{font-size:16px}}
+</style>
+</head><body>
+<main class="wrap">
+<header class="top"><div><div class="eyebrow">八年级数学 · 逐步互动解题</div><h1>第 9 题｜直线绕点 A 旋转 45°</h1><div class="subtle" style="margin-top:8px">从作图思路到解析式，点击一步讲一步</div></div><div class="pill" id="counter">01 / 13</div></header>
+<div class="progress" aria-hidden="true"><div id="bar"></div></div>
+<nav class="nav" aria-label="章节导航"><button data-goto="0" class="on">读题与思路</button><button data-goto="3">确定旋转中心</button><button data-goto="5">顺时针旋转</button><button data-goto="8">逆时针旋转</button><button data-goto="11">两个答案</button></nav>
+<div class="grid"><section class="card teaching"><div class="smalllabel" id="stepnum">第 1 步</div><h2 class="title" id="steptitle">读懂题目</h2><div class="think"><strong>💡 先想什么？</strong><div id="question"></div></div><div class="derivation"><strong>分析 / 推导</strong><div class="equations" id="equations"></div></div><div class="hint" id="hint"></div><div class="actions"><button class="btn outline" id="prev">← 上一步</button><button class="btn" id="next">下一步 →</button></div></section>
+<section class="card diagram"><div class="board-title"><b>坐标图 · 观察旋转方向</b><span class="subtle" id="graphLabel">原始直线</span></div><div class="legend"><span><i class="dot blue"></i>原直线 AB</span><span><i class="dot orange"></i>顺时针 −45°</span><span><i class="dot green"></i>逆时针 +45°</span></div>
+<svg id="fig" viewBox="0 0 740 555" role="img" aria-label="直线 y 等于负二分之一 x 加一，绕 A 点旋转45度的交互坐标图">
+<g id="gridlines"></g><g id="axes"></g><g id="shapes"></g><g id="labels"></g>
+</svg>
+<div class="control"><h3>动手实验：旋转直线 AB</h3><div class="buttonline"><button class="smallbtn" id="cw">顺时针 45°</button><button class="smallbtn" id="zero">回到原直线</button><button class="smallbtn" id="ccw">逆时针 45°</button><button class="smallbtn" id="both">对比两个答案</button></div><div class="sliderrow"><label class="subtle" for="angle">旋转角</label><input aria-label="旋转角度" id="angle" type="range" min="-45" max="45" value="0" step="1"/><span id="anglevalue" class="anglevalue">0°</span></div><div class="readout" id="readout">移动滑块：旋转中心 A 不动，直线的方向改变。</div></div></section></div>
+<div class="answer"><b>特别提醒：</b>题目只写“旋转 45 度”，<span class="warning">没有说明顺时针或逆时针</span>，因此在没有其他图示限制时，应给出两条直线：<b>y = −3x + 6</b> 或 <b>y = x/3 − 2/3</b>。</div>
+<div class="footer">单文件 HTML · 完全离线运行 · 键盘 ← → 也可以翻页 · 不自动播放</div>
+</main>
+<script>
+'use strict';
+const steps=[
+{t:'先读懂题目',q:'已知哪条直线？绕哪个点旋转？旋转方向是否明确？',f:'原直线：y = −(1/2)x + 1\n绕交点 A 旋转 45°',h:'这是一道“旋转 + 一次函数”的综合题。先确定旋转中心，再讨论方向。',mode:'base'},
+{t:'先找与 x 轴的交点 A',q:'点在 x 轴上，纵坐标等于多少？',f:'令 y = 0\n0 = −x/2 + 1\nx = 2，A(2,0)',h:'A 是旋转中心，旋转后位置始终不变。',mode:'base'},
+{t:'找与 y 轴的交点 B',q:'点在 y 轴上，横坐标是多少？',f:'令 x = 0\ny = 1\nB(0,1)',h:'作图时连接 A(2,0) 和 B(0,1)，得到原直线。',mode:'base'},
+{t:'确定固定点与原方向',q:'从 A 指向 B，向左和向上各移动多少格？',f:'从 A 到 B：\n横向 −2，纵向 +1\n向量 AB = (−2,1)',h:'旋转前后，以 A 为起点的两条射线夹角为 45°。',mode:'base'},
+{t:'关键：题目少了旋转方向',q:'顺时针 45° 与逆时针 45°，会得到同一条直线吗？',f:'两种可能：\n① 顺时针旋转 45°\n② 逆时针旋转 45°',h:'原题没有限定旋转方向，因此两种结果都要检查。',mode:'both'},
+{t:'顺时针：构造等腰直角三角形',q:'怎样不使用高中三角函数，也能准确找到旋转后的方向？',f:'AB = √5\n过 B 作 BP ⟂ AB，取 BP = AB\n使 ∠BAP = 45°',h:'△ABP 在 B 处是等腰直角三角形；A 到 P 的方向就是顺时针旋转后的方向。',mode:'cw',triangle:'cw'},
+{t:'顺时针：确定辅助点 P',q:'AB 方向为 (−2,1)，与它等长且垂直的向量可以是什么？',f:'AB = (−2,1)\nBP = (1,2)，且 AB·BP = 0\nP = B+(1,2) = (1,3)',h:'因为 |BP| = |AB|，所以 ∠BAP = 45°。',mode:'cw',triangle:'cw'},
+{t:'顺时针：求新直线',q:'直线经过 A(2,0)、P(1,3)，斜率是多少？',f:'k = (3−0)/(1−2) = −3\ny = −3(x−2)\n【顺时针】y = −3x + 6',h:'旋转的直线仍然经过 A(2,0)，这是求解析式的快捷条件。',mode:'cw',triangle:'cw'},
+{t:'逆时针：反方向作等腰直角',q:'如果向另一侧旋转 45°，辅助点应该位于哪里？',f:'过 B 向另一侧取 BQ ⟂ AB\n并令 BQ = AB\n∠BAQ = 45°',h:'两侧分别可以构成一个等腰直角三角形。',mode:'ccw',triangle:'ccw'},
+{t:'逆时针：确定辅助点 Q',q:'与 (−2,1) 等长且垂直的另一个向量是什么？',f:'BQ = (−1,−2)\nQ = B+(−1,−2)\nQ(−1,−1)',h:'此时 △ABQ 也在 B 处为等腰直角三角形。',mode:'ccw',triangle:'ccw'},
+{t:'逆时针：求新直线',q:'A(2,0)、Q(−1,−1) 确定的直线斜率为多少？',f:'k = (−1−0)/(−1−2) = 1/3\ny = (x−2)/3\n【逆时针】y = x/3 − 2/3',h:'与顺时针得到的直线不同，两者都通过 A。',mode:'ccw',triangle:'ccw'},
+{t:'对比：两种旋转结果',q:'两条新直线是不是都经过 A？夹角是不是都为 45°？',f:'顺时针：y = −3x + 6\n逆时针：y = x/3 − 2/3',h:'点击右侧“顺时针/逆时针/对比两个答案”，观察它们关于原直线的夹角。',mode:'both'},
+{t:'解题方法总结',q:'下一次遇到“直线旋转”题，要先检查哪些条件？',f:'① 求旋转中心的坐标\n② 找出原直线的方向\n③ 利用 45° 构造等腰直角三角形\n④ 两点求斜率，写解析式\n⑤ 无方向限制时，保留两解',h:'最终：y = −3x + 6 或 y = x/3 − 2/3。',mode:'both'}
+];
+const ns='http://www.w3.org/2000/svg';let step=0,angle=0,modeOverride=null;
+const el=id=>document.getElementById(id);const X=x=>290+51*x,Y=y=>430-51*y;
+function node(parent,tag,attrs={},txt){let e=document.createElementNS(ns,tag);for(let [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(txt!=null)e.textContent=txt;parent.appendChild(e);return e}
+function line(g,x1,y1,x2,y2,stroke,width=2,dash='',opacity=1){return node(g,'line',{x1:X(x1),y1:Y(y1),x2:X(x2),y2:Y(y2),stroke,'stroke-width':width,'stroke-dasharray':dash,opacity,'stroke-linecap':'round'})}
+function dot(g,x,y,c,label,dx=11,dy=-14){node(g,'circle',{cx:X(x),cy:Y(y),r:8,fill:c,stroke:'white','stroke-width':3});node(g,'text',{x:X(x)+dx,y:Y(y)+dy,fill:c,'font-size':21,'font-weight':750},label)}
+function arc(g,start,finish,color,r=57){let cx=X(2),cy=Y(0),pts=[];for(let i=0;i<=24;i++){let th=(start+(finish-start)*i/24)*Math.PI/180;pts.push(`${cx+r*Math.cos(th)},${cy-r*Math.sin(th)}`)}node(g,'polyline',{points:pts.join(' '),fill:'none',stroke:color,'stroke-width':3,'stroke-linecap':'round'});let mid=(start+finish)/2*Math.PI/180;node(g,'text',{x:cx+(r+19)*Math.cos(mid),y:cy-(r+19)*Math.sin(mid),fill:color,'font-size':19,'font-weight':800,'text-anchor':'middle'},'45°')}
+function draw(){const g=el('gridlines'),axes=el('axes'),s=el('shapes'),labels=el('labels');for(const e of [g,axes,s,labels])e.replaceChildren();
+for(let v=-4;v<=8;v++){line(g,v,-2.3,v,7.5,'#e9edf5',1);if(v%2===0&&v!==0)node(g,'text',{x:X(v),y:Y(0)+24,'font-size':15,fill:'#75829a','text-anchor':'middle'},String(v))}
+for(let v=-2;v<=7;v++){line(g,-5.4,v,8.1,v,'#e9edf5',1);if(v%2===0&&v!==0)node(g,'text',{x:X(0)-13,y:Y(v)+5,'font-size':15,fill:'#75829a','text-anchor':'end'},String(v))}
+line(axes,-5.4,0,8.1,0,'#6a7689',2.2);line(axes,0,-2.3,0,7.5,'#6a7689',2.2);
+node(axes,'path',{d:`M${X(8.1)-12} ${Y(0)-6} L${X(8.1)} ${Y(0)} L${X(8.1)-12} ${Y(0)+6}`,fill:'none',stroke:'#6a7689','stroke-width':2});node(axes,'path',{d:`M${X(0)-6} ${Y(7.5)+12} L${X(0)} ${Y(7.5)} L${X(0)+6} ${Y(7.5)+12}`,fill:'none',stroke:'#6a7689','stroke-width':2});node(axes,'text',{x:X(8.1)+8,y:Y(0)+5,'font-size':19,fill:'#42556f'},'x');node(axes,'text',{x:X(0)+12,y:Y(7.5)+8,'font-size':19,fill:'#42556f'},'y');node(axes,'text',{x:X(0)-17,y:Y(0)+23,'font-size':17,fill:'#42556f'},'O');
+// Original line, visible in every step.
+line(s,-4,3,6,-2,'#3266da',3.4,'',.90);
+node(labels,'text',{x:X(-4.1),y:Y(3)+4,'font-size':19,'font-weight':750,fill:'#3266da'},'原直线 AB');
+const st=steps[step],resolved=modeOverride||st.mode;
+let showCW=resolved==='cw'||resolved==='both',showCCW=resolved==='ccw'||resolved==='both';
+if(resolved==='manual'){if(Math.abs(angle)<.1){showCW=false;showCCW=false}else{let th=angle*Math.PI/180,dx=-2*Math.cos(th)-Math.sin(th),dy=-2*Math.sin(th)+Math.cos(th),k=dy/dx;line(s,-4,k*(-6),6,k*4,angle<0?'#e18429':'#0a9a88',3.8);let bx=2+dx,by=dy;dot(labels,bx,by,angle<0?'#e18429':'#0a9a88','B′',12,-15);arc(s,Math.atan2(1,-2)*180/Math.PI,Math.atan2(1,-2)*180/Math.PI+angle,angle<0?'#e18429':'#0a9a88',55);line(s,2,0,bx,by,angle<0?'#e18429':'#0a9a88',4)}}
+if(showCW){line(s,-.36,7.08,3.67,-5.01,'#e18429',4.3,'',.95);line(s,2,0,1,3,'#e18429',5.5);arc(s,153.4349488,108.4349488,'#e18429',57);if(st.triangle==='cw'){line(s,0,1,1,3,'#e18429',2.8,'7 6');line(s,2,0,0,1,'#3266da',4.7);dot(labels,1,3,'#e18429','P(1,3)',15,-10)}else dot(labels,1,3,'#e18429','P',13,-12);node(labels,'text',{x:X(-.45),y:Y(6.1),'font-size':20,fill:'#e18429','font-weight':800},'y=−3x+6')}
+if(showCCW){line(s,-4,-2,8,2,'#0a9a88',4.3,'',.95);line(s,2,0,-1,-1,'#0a9a88',5.5);arc(s,153.4349488,198.4349488,'#0a9a88',94);if(st.triangle==='ccw'){line(s,0,1,-1,-1,'#0a9a88',2.8,'7 6');line(s,2,0,0,1,'#3266da',4.7);dot(labels,-1,-1,'#0a9a88','Q(−1,−1)',-5,29)}else dot(labels,-1,-1,'#0a9a88','Q',-13,28);node(labels,'text',{x:X(4.1),y:Y(.7)+28,'font-size':20,fill:'#0a9a88','font-weight':800},'y=x/3−2/3')}
+if(step>=1)dot(labels,2,0,'#1e293b','A(2,0)',13,26);else dot(labels,2,0,'#1e293b','A',12,25);
+if(step>=2)dot(labels,0,1,'#1e293b','B(0,1)',-75,-17);else dot(labels,0,1,'#1e293b','B',-20,-15);
+el('graphLabel').textContent=resolved==='base'?'原始直线':resolved==='both'?'对比两个方向':resolved==='cw'?'顺时针 45°':resolved==='ccw'?'逆时针 45°':'自由旋转';
+}
+function render(){let st=steps[step];el('counter').textContent=String(step+1).padStart(2,'0')+' / '+steps.length;el('bar').style.width=((step+1)/steps.length*100)+'%';el('stepnum').textContent=`第 ${step+1} 步 / 共 ${steps.length} 步`;el('steptitle').textContent=st.t;el('question').textContent=st.q;el('equations').textContent=st.f;el('hint').textContent=st.h;el('prev').disabled=step===0;el('next').textContent=step===steps.length-1?'重新学习 ↻':'下一步 →';for(let b of document.querySelectorAll('nav button')){let n=+b.dataset.goto;b.classList.toggle('on',n===([0,3,5,8,11].filter(x=>x<=step).pop()))}
+if(!modeOverride){angle=st.mode==='cw'?-45:st.mode==='ccw'?45:0;el('angle').value=angle}updateAngleUI();draw()}
+function updateAngleUI(){el('anglevalue').textContent=(angle>0?'+':'')+angle+'°';let exact=angle===-45?'顺时针：y = −3x + 6':angle===45?'逆时针：y = x/3 − 2/3':angle===0?'原直线：y = −x/2 + 1':`旋转角 ${angle}°，新直线仍经过 A(2,0)`;el('readout').textContent=(modeOverride==='both'||(!modeOverride&&steps[step].mode==='both'))?'两种结果同时显示：绕同一个点 A，旋转方向不同，直线不同。':exact;for(let id of ['cw','ccw','zero','both'])el(id).classList.remove('ispicked');if(modeOverride==='both'||(!modeOverride&&steps[step].mode==='both'))el('both').classList.add('ispicked');else if(angle===-45)el('cw').classList.add('ispicked');else if(angle===45)el('ccw').classList.add('ispicked');else if(angle===0)el('zero').classList.add('ispicked')}
+function goto(i){step=Math.max(0,Math.min(steps.length-1,i));modeOverride=null;render()}
+el('prev').addEventListener('click',()=>goto(step-1));el('next').addEventListener('click',()=>goto(step===steps.length-1?0:step+1));document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>goto(+b.dataset.goto)));
+function setMode(m){modeOverride=m;angle=m==='cw'?-45:m==='ccw'?45:0;el('angle').value=angle;updateAngleUI();draw()}
+el('cw').addEventListener('click',()=>setMode('cw'));el('ccw').addEventListener('click',()=>setMode('ccw'));el('zero').addEventListener('click',()=>setMode('base'));el('both').addEventListener('click',()=>setMode('both'));
+el('angle').addEventListener('input',e=>{modeOverride='manual';angle=Number(e.target.value);updateAngleUI();draw()});document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;if(e.key==='ArrowRight')goto(step+1);if(e.key==='ArrowLeft')goto(step-1)});
+render();
+</script>
+</body></html>
