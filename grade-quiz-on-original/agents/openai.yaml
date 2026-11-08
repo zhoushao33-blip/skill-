@@ -1,0 +1,13 @@
+interface:
+  display_name: 小测原图旁批
+  short_description: 沿用已确认的小测批改模式，原图答案旁打勾叉，错题订正，按学生打包
+  default_prompt: 请用 $grade-quiz-on-original 对照标准答案批改这批小测，原图答案旁打勾叉，错误就近写正确答案，按学生分文件夹打包。
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
