@@ -1,0 +1,32 @@
+{
+  "grade": 9,
+  "pdf_page_start": 62,
+  "pdf_page_end": 63,
+  "empty_pages": [],
+  "entries": [
+    {
+      "page": 62,
+      "mark": "number",
+      "source": "case",
+      "text": "情况；实例；病例"
+    },
+    {
+      "page": 62,
+      "mark": "star",
+      "source": "in any case",
+      "text": "无论如何"
+    },
+    {
+      "page": 62,
+      "mark": "half_check",
+      "source": "in no case",
+      "text": "in no case"
+    },
+    {
+      "page": 63,
+      "mark": "number",
+      "source": "review",
+      "text": "复习；回顾"
+    }
+  ]
+}
